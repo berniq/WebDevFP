@@ -68,7 +68,7 @@ The project will focus on creating a social network platform. It's core reqireme
   
 ---
 
-#### Persona 2: Sarah, 30 - Marketing Specialist
+### Persona 2: Sarah, 30 - Marketing Specialist
 
 **Demographics**
 - **Age:** 30
@@ -110,7 +110,7 @@ The project will focus on creating a social network platform. It's core reqireme
 
 ---
 
-#### Persona 3: Tom, 40 - Freelancer (Designer)
+### Persona 3: Tom, 40 - Freelancer (Designer)
 
 **Demographics**
 - **Age:** 40
@@ -152,7 +152,7 @@ The project will focus on creating a social network platform. It's core reqireme
 
 ---
 
-#### Persona 4: John, 68 - Retired Teacher and Politically Engaged
+### Persona 4: John, 68 - Retired Teacher and Politically Engaged
 
 **Demographics**
 - **Age:** 68
@@ -187,7 +187,7 @@ The project will focus on creating a social network platform. It's core reqireme
 - **Device Comfort:** Comfortable with his tablet and occasionally uses his desktop computer. He prefers not to use his phone for browsing or commenting.
 - **Adaptability:** Slow to adapt to new technology but will embrace it if it's easy to use and meets his needs.
 
-**Additional Insights:**
+**Additional Insights**
 - **Need for Simplicity & User-Friendly Design:**  
   John values clarity and ease of use. He doesn’t want to be overwhelmed by excessive features or complicated settings. The platform should have an intuitive design with simple navigation, clear call-to-action buttons, and an easy layout. Large, legible fonts, an uncluttered interface, and simple icons are key to creating a positive experience for him.
 - **Social Connection with Family & Friends:**  
@@ -205,10 +205,130 @@ The project will focus on creating a social network platform. It's core reqireme
 - **Building a Legacy:**  
   As a retired teacher, John may want to leave a lasting legacy by sharing his insights, stories, and knowledge. The platform should give him a way to share longer, more detailed posts, blog-style content, or even educational video lectures. Features that allow him to create a "profile" that showcases his years of experience and expertise would allow him to feel more valued on the platform.
 
+---
 
 ## 2. Use Cases and User Flows
 
-Add something
+### Use Case / Usage Scenario 1: Profile Customization and Language Change
+
+**Goal**
+As a user, I want to customize my profile and change the language of the application.
+
+**Context**
+The user wants to update their profile with a new picture and description, and also change the interface language to suit their preference.
+
+**Steps**
+1. The user goes to their profile page by clicking on their avatar.
+2. They click the "Edit Profile" button.
+3. The user uploads a new profile picture and enters a brief description in the text box.
+4. Below the description, the user selects a preferred language from a dropdown menu (Polish or English).
+5. The user clicks "Save Changes."
+
+**System’s Response**
+- The system updates the profile picture and description on the user’s profile.
+- The system saves the changes and reflects them immediately.
+- The system updates the app’s interface to the selected language.
+
+**Edge Cases**
+- **File Size**: If the profile picture is too large, the system will prompt the user to upload a smaller image.
+- **Empty Description**: If the user doesn’t add a description, the system will show a default placeholder or an error prompt.
+- **Language Change Delay**: If there's a delay in updating the language, the system will show a loading spinner or message, and the interface will change once the update is successful.
+
+---
+
+### Use Case / Usage Scenario 2: Sharing a New Status Update
+
+**Goal**  
+As a user, I want to share a new status update with my friends.
+
+**Context**  
+The user opens the app during their free time to share a new thought or moment with their followers.
+
+**Steps**  
+1. The user opens the app from their smartphone or desktop.  
+2. They navigate to their profile by clicking on their avatar.  
+3. The user clicks the "Create New Post" button.  
+4. They type a short description and attach an image/video.  
+5. The user clicks "Post" to share it with their followers.  
+
+**System’s Response**  
+- The system updates their feed, showing the new post along with the attached content.  
+- The system sends notifications to followers and contacts about the new post.  
+- The system may feature the post on the platform if it gains engagement.  
+
+**Edge Cases**  
+- **Incorrect Data**: If the user tries to post without any text or image, the system shows an error, like "Please add a caption or image."  
+- **Privacy Settings**: If the user has set specific privacy preferences, the post will be visible only to the chosen audience (e.g., only followers or specific groups).  
+- **Slow Network**: If the connection is slow, the app will show a loading indicator and retry posting.  
+
+---
+
+### Use Case / Usage Scenario 3: Following and Unfollowing a User
+
+**Goal**  
+As a user, I want to follow or unfollow someone to stay updated on their posts.
+
+**Context**  
+The user wants to follow a friend or influencer to see their posts in their feed.
+
+**Steps**  
+1. The user navigates to the profile of the person they want to follow/unfollow.  
+2. They click on the "Follow" or "Unfollow" button on the user’s profile page.  
+
+**System’s Response**  
+- If the user clicks "Follow," the system adds them to the following list and starts showing posts from that user in the feed.  
+- If the user clicks "Unfollow," the system removes them from the following list, and their posts no longer appear in the feed.  
+
+**Edge Cases**  
+- **Already Following**: If the user is already following the person, clicking "Follow" will be disabled, and the user will see "You are already following this person."  
+- **No Internet**: If there is no internet, the system will display an error message and attempt to reconnect.  
+
+---
+
+### Use Case / Usage Scenario 4: Commenting on a Post
+
+**Goal**  
+As a user, I want to comment on a post to interact with the content.
+
+**Context**  
+The user wants to comment on a friend's post to share their thoughts.
+
+**Steps**  
+1. The user opens the app and scrolls through their feed.  
+2. They click on a post they want to comment on.  
+3. They type a comment in the comment section and click "Post."  
+
+**System’s Response**  
+- The system updates the comment section to display the new comment.  
+- The system sends a notification to the post owner about the new comment.  
+
+**Edge Cases**  
+- **Comment Too Long**: If the comment exceeds the character limit, the system will show an error and prompt the user to shorten the comment.  
+- **Spam Filter**: If the comment contains flagged words or phrases, the system will block the comment and notify the user.  
+
+---
+
+### Use Case / Usage Scenario 5: Viewing Notifications for Post Interactions
+
+**Goal**  
+As a user, I want to receive notifications when someone likes or comments on my post or follows me.
+
+**Context**  
+The user wants to stay informed about interactions with their content and account.
+
+**Steps**  
+1. The user opens the app and navigates to the notifications tab.  
+2. The user sees the latest notifications for post likes, comments, and new followers.  
+3. The user clicks on a notification to view the post or the profile of the person who interacted.  
+
+**System’s Response**  
+- The system shows the relevant notification (like, comment, or follow).  
+- The system highlights the post or user profile associated with the notification.  
+
+**Edge Cases**  
+- **Bulk Notifications:** If the user receives too many notifications at once, the system groups similar ones together (e.g., "5 people liked your post" instead of separate notifications).
+- **Expired Notifications:** If a post is deleted or a user account is deactivated before the notification is checked, the system will remove or mark the notification as unavailable.
+- **Duplicate Notifications:** If a user receives multiple identical notifications due to a system error, the app should filter out duplicates. 
 
 ---
 
