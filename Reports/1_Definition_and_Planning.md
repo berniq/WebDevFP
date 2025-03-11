@@ -340,17 +340,145 @@ Add something
 
 ## 4. Information Architecture and Technical Design
 
-The application will use following technologies:
+### Information Architecture
 
-Frontend:
-- TypeScript
-- React
-- Tailwind
+#### Overview
 
-Backend:
-- Kotlin
-- Spring Boot
-- PostgreSQL
+The platform follows a structured and intuitive information architecture to ensure smooth user navigation and efficient data organization. Key components include:
+
+- **User Profiles**: Each user has a profile page displaying their posts, followers, and account settings. Users can view their own profile and check other users' profiles.
+- **Posts & Feed**: Users can create posts, view others' posts in a feed, and interact with them.
+- **Notifications**: Users receive real-time updates on likes, comments, and new followers.
+- **Settings**: Users can customize their profiles, change language preferences, and manage privacy settings.
+
+#### Navigation Flow
+
+Users can navigate through the application as follows:
+
+- **Home Feed**: Displays posts from followed users.
+- **Profile Page**: Allows users to update personal information and view their content.
+- **View Other Profiles**: Users can view the profiles of other users, including their posts and follower details.
+- **Notifications**: Lists all interactions such as likes, comments, and follows.
+- **Settings**: Provides account management options.
+
+#### Sitemap
+
+
+![Sitemap Diagram](resources/sitemap.png)
+
+---
+
+### Technical Design
+
+#### Technology Stack
+
+The application is built using modern technologies to ensure scalability, maintainability, and performance.
+
+**Frontend:**
+- **TypeScript** – Ensures type safety and maintainability for a scalable frontend.
+- **React** – Provides a component-based architecture for building an interactive UI.
+- **Tailwind** – Enables rapid and consistent styling with a utility-first approach.
+
+**Backend:**
+- **Kotlin** – Offers a concise, expressive, and safe language for backend development.
+- **Spring Boot** – Facilitates rapid development with built-in support for web applications and APIs.
+- **PostgreSQL** – Delivers a powerful, reliable, and scalable relational database solution.
+
+**Real-Time Notifications:**
+- **WebSockets** – Used for real-time updates, ensuring users are instantly notified of new interactions such as likes, comments, and follows.
+- **AWS SNS** – AWS Simple Notification Service is utilized for sending notifications to users about interactions on their posts.
+
+#### Architecture
+
+The platform follows a client-server architecture:
+
+- **Frontend (React, TypeScript)** communicates with the **Backend (Spring Boot, Kotlin)** via REST APIs.
+- The backend interacts with the **PostgreSQL database** for storing user data, posts, and interactions.
+- **WebSockets** are used to manage real-time notifications, providing immediate updates to users.
+- **AWS SNS** is integrated to handle scalable notifications for large numbers of users.
+
+#### Authorization
+
+Authorization in the system follows a strict access control model to ensure users can only perform actions permitted to them.
+
+**Public API**
+
+Anonymous users can access public endpoints, such as retrieving posts (`GET /api/posts`).
+
+**Private API**
+
+**Authenticated User Actions**
+
+- A user must authenticate to create posts under their own account (`POST /api/users/1/posts` with valid credentials).
+- If an unauthenticated user attempts to create a post, the system returns **401 Unauthorized**.
+- If the correct user authenticates, the request is allowed, returning **201 Created**.
+
+**Restricted Actions**
+
+- Users cannot create posts on behalf of another user.
+- If an authenticated user (User "2") attempts to create a post for another user (User "1"), the system returns **403 Forbidden**.
+
+This authorization flow ensures users can only modify their own data and prevents unauthorized actions on behalf of others.
+
+**Authorization Diagram**
+
+![Authorization Diagram](resources/authorization.png)
+
+#### Data Flow
+
+1. **User creates a post** → Frontend sends request to the backend → Post is stored in PostgreSQL → Followers are notified via WebSockets.
+2. **User likes/comments on a post** → Action is recorded in the database → Post owner receives a real-time notification via WebSockets and AWS SNS.
+3. **User follows another user** → Relationship is stored in the database → The followed user is notified via WebSockets and AWS SNS.
+4. **User views another profile** → Profile data is fetched from the backend → The profile page is displayed with posts and follower information.
+
+#### Deployment Strategy
+
+- **Frontend Hosting**: Deployed on **AWS S3** for static website hosting, with **AWS CloudFront** for content delivery and caching.
+- **Backend Hosting**: Hosted on **AWS EC2** using **Docker containers**.
+- **Database**: Managed PostgreSQL instance on **AWS RDS**.
+- **Dockerization**: Both frontend and backend applications are containerized using Docker for easy deployment and scalability on AWS services.
+
+#### Security Measures
+
+- **Authentication**: OAuth-based social login (Google Sign-In) and JWT tokens.
+- **Data Protection**: HTTPS encryption and secure API endpoints.
+- **Rate Limiting**: Prevents spam and abuse by limiting API requests per user.
+
+#### Caching Strategy
+
+Caching plays a crucial role in improving application performance by reducing the load on the database and speeding up data retrieval. Two caching strategies are currently being evaluated: **Lazy Loading** and **Write-Through**.
+
+**Lazy Loading**
+- **Description**: In lazy loading, the cache is populated only when the data is requested. If the data is not in the cache, it is fetched from the database and then added to the cache for subsequent requests.
+- **Pros**:
+  - Reduces the initial load time.
+  - Saves memory by only caching frequently accessed data.
+- **Cons**:
+  - May result in slower initial response time as data is fetched from the database.
+  - Increased load on the database in case of many cache misses.
+
+**Write-Through Caching**
+- **Description**: In write-through caching, data is written to both the cache and the database simultaneously. This ensures that the cache is always up-to-date with the database.
+- **Pros**:
+  - Ensures cache consistency with the database.
+  - Faster read operations as data is immediately available in the cache.
+- **Cons**:
+  - Slightly higher write latency due to the need to update both the cache and database.
+  - More memory usage as all changes are cached.
+
+**Caching Strategy Decision**
+
+The best approach will be determined based on factors such as data consistency requirements, performance needs, data access patterns, the need for real-time data, and the overall impact of caching on application performance.
+
+**Caching Strategy Diagram**
+
+![Caching Strategy Diagram](resources/caching_strategies.png)
+
+#### Future Enhancements
+
+- Implementing **GraphQL** for more flexible data retrieval.
+- **AI-based content recommendations**.
+- **Native mobile application** using React Native.
 
 ---
 
