@@ -426,10 +426,10 @@ This authorization flow ensures users can only modify their own data and prevent
 
 #### Data Flow
 
-1. **User creates a post** → Frontend sends request to the backend → Post is stored in PostgreSQL → Followers are notified via WebSockets.
-2. **User likes/comments on a post** → Action is recorded in the database → Post owner receives a real-time notification via WebSockets and AWS SNS.
-3. **User follows another user** → Relationship is stored in the database → The followed user is notified via WebSockets and AWS SNS.
-4. **User views another profile** → Profile data is fetched from the backend → The profile page is displayed with posts and follower information.
+- **User creates a post** → Frontend sends request to the backend → Post is stored in PostgreSQL → Followers are notified via WebSockets.
+- **User likes/comments on a post** → Action is recorded in the database → Post owner receives a real-time notification via WebSockets and AWS SNS.
+- **User follows another user** → Relationship is stored in the database → The followed user is notified via WebSockets and AWS SNS.
+- **User views another profile** → Profile data is fetched from the backend → The profile page is displayed with posts and follower information.
 
 #### Deployment Strategy
 
@@ -484,7 +484,86 @@ The best approach will be determined based on factors such as data consistency r
 
 ## 5. Project Management and User Testing
 
-### Project Management Plan:
+### Approach: Agile (Scrum)
+This project will be developed using an **Agile Scrum** methodology. The development process will be broken into sprints, with each sprint focusing on specific features and tasks.
 
+---
+
+### Sprint Breakdown
+
+### **1st Sprint: Backend & Authentication**
+#### **Tasks:**
+- **Backend Initialization**: Set up the backend environment (e.g., server, framework, database).
+- **Database Setup**: Create the schema and set up tables for users, posts, etc.
+- **User Resources**: Implement CRUD operations for user profiles and posts.
+- **Authentication & Authorization**: Implement social login (e.g., Google) and basic user authentication.
+- **Basic API Endpoints**: Create API endpoints for user registration, login, and profile management.
+
+### **2nd Sprint: Frontend & API Integration**
+#### **Tasks:**
+- **Frontend Initialization**: Set up the frontend framework (React, Vue, etc.) and basic structure.
+- **API Integration**: Ensure frontend communicates with backend APIs (e.g., login, fetch posts).
+- **Testing**: Implement unit tests for backend and frontend, and automated tests for key functions (e.g., login, post creation).
+- **E2E Testing**: Set up end-to-end testing using a tool like Cypress to simulate user flows (e.g., log in, create post, comment).
+- **Basic UI Implementation**: Build the UI components for login, post creation, and profile page.
+
+### **3rd Sprint: Features & User Interaction**
+#### **Tasks:**
+- **Post Interaction**: Implement features for creating, editing, deleting posts, and liking.
+- **Cross-user Interaction**: Implement follow/unfollow functionality.
+- **User Notifications**: Implement notifications for post likes, comments, and follows.
+- **Usability Testing**: Gather feedback on usability, especially for login, post creation, and user interactions.
+
+### **4th Sprint: Polishing & Scalability**
+#### **Tasks:**
+- **Performance Optimization**: Optimize for speed and responsiveness.
+- **Mobile Responsiveness**: Ensure the platform works well on mobile devices.
+- **Advanced Features**: Implement additional features like image uploading, comment replies.
+- **Final User Testing**: Conduct a round of user testing on the complete platform.
+- **Deployment Preparation**: Prepare for production deployment using Docker.
+
+### **Ongoing:**
+- **Bug Fixing & Maintenance**: Address issues found during development or testing.
+- **Documentation**: Keep backend API, frontend components, and setup documentation up to date.
+
+---
+
+### Risk Management
+
+#### **Potential Risks:**
+1. **Technical Difficulties**: Problems with API integration, authentication, or database setup.
+   - **Mitigation**: Research and plan technologies before implementation, allocate extra time for complex tasks, and have backup solutions.
+2. **Delay in Development**: Delays due to unexpected issues or too many features in one sprint.
+   - **Mitigation**: Focus on the most critical features first, avoid scope creep, and break tasks into smaller, manageable chunks.
+3. **User Feedback & Usability Issues**: User tests might reveal issues with navigation, usability, or unexpected behavior.
+   - **Mitigation**: Conduct regular usability tests early on, iterate based on feedback, and focus on the most essential user flows.
+4. **Scalability**: The platform may not scale efficiently with a large number of users.
+   - **Mitigation**: Focus on clean, scalable code and structure, and perform stress testing during the later sprints.
+
+#### **Risk Monitoring:**
+- Regularly review progress in each sprint and adapt plans accordingly.
+- Prioritize critical tasks and continuously monitor the progress against set deadlines.
+
+---
 
 ### User Testing Plan:
+
+#### **Testing Methodology:**
+- **Usability Testing**: Conduct regular usability tests to ensure the app is user-friendly and meets expectations.
+- **Unit & Automated Testing**: Ensure that individual components work as expected.
+- **E2E Testing**: Simulate user flows from start to finish to ensure the platform works smoothly.
+- **Surveys**: Use surveys for feedback on the user experience after major features are implemented.
+
+#### **Test Scenarios:**
+- **Scenario 1**: Users log in with Google, create a post, edit the post, and delete it.
+- **Scenario 2**: Users follow/unfollow others and interact with posts (like, comment).
+- **Scenario 3**: Users receive notifications for activities such as post likes and comments.
+
+#### **Participants:**
+- **Target Users**: Users who represent the intended audience of the platform, such as students, professionals, etc.
+- **External Testers**: Individuals who are not familiar with the platform, providing unbiased feedback on the user experience.
+
+#### **Metrics:**
+- **Task Completion Time**: How long it takes users to complete tasks (e.g., logging in, creating a post).
+- **Error Rates**: Frequency of errors or bugs encountered during testing.
+- **User Satisfaction**: Gather qualitative and quantitative feedback on the user experience.
