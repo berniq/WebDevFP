@@ -334,7 +334,118 @@ The user wants to stay informed about interactions with their content and accoun
 
 ## 3. UI Prototypes
 
-Add something
+### Home Page (Feed)
+
+**Purpose**:  
+  The home page is the main dashboard of the platform, where users can view posts from people they follow, like, comment, and interact with the content. It displays the most popular feed, notifications, a navigation bar, and a summary of the user's profile.
+
+**Key Elements**:  
+  - **Post Feed**:  
+    Option to create posts. Displays posts with the user’s username and post content (text, images). Each post has options for interacting (like, comment, follow/unfollow).
+  
+  - **Like and Comment Buttons**:  
+    Below each post, users can like the post or leave a comment.
+  
+  - **Navigation Bar**:  
+    At the top, there are icons for quick navigation between the home feed, profile, notifications, and settings, along with the logo and search bar.
+  
+  - **User Profile Summary**:  
+    On the left, users can see their photo and short profile summary.
+  
+  - **Notifications Panel**:  
+    Under the profile summary, there is a notification feed.
+  
+  - **Popular Feed**:  
+    On the right, there is a feed with the most popular post thumbnails.
+
+**Interaction**:  
+  Users can scroll through the feed, like posts, comment, and follow/unfollow users directly from the feed. They can interact with the navigation bar to switch tabs, search, access their profile, and adjust options. Users can also check notifications, create posts, and view the most popular posts.
+
+**Sketch of Home Page**
+
+![Home Page](resources/UI_Home.jpg)
+
+---
+
+### Login Screen
+
+**Purpose**:  
+  The login screen allows users to authenticate and access the platform. Users can log in quickly using their Google account.
+
+**Key Elements**:  
+  - **Google Login Button**:  
+    A prominent button for logging in with Google, enabling users to quickly sign in using their existing Google account. 
+  
+  - **Links**:  
+    Below the login button, there is text:  
+    *"By logging in, you agree to our [Terms of Service] and [Privacy Policy]."* This informs users about the platform’s rules and privacy practices, and clicking the links will open the respective documents.
+
+**Interaction**:  
+  To log in, the user can either click the Google login button or access the links to the platform’s Terms of Service and Privacy Policy to learn more about the platform’s rules before proceeding.
+
+**Sketch of Login Screen**
+
+![Login Screen](resources/UI_Login.jpg)
+
+---
+
+### Post Creation Screen
+
+**Purpose**:  
+  The post creation screen allows users to share text, images, or other content with their followers and the world.
+
+**Key Elements**:  
+  - **Text Input Field**:  
+    A large area where users can type their post content. The field should support rich text formatting (optional for future versions). 
+  
+  - **Image Upload Button**:  
+    An icon or button that allows users to attach images to their post, enriching their content with multimedia.
+  
+  - **Post Button**:  
+    A button at the bottom of the screen labeled “Post,” which submits the content created by the user.
+
+  - **Profile Picture**:  
+    The profile picture of the user is displayed in the corner of the post creation screen, showing the user’s identity while creating the post.
+
+**Interaction**:  
+  Users can type their content, attach images, and submit the post by clicking the “Post” button. The screen provides clear feedback once the post is created, confirming the post has been successfully submitted.
+
+**Sketch of Post Creation Screen**
+
+![Post Creation Screen](resources/UI_Post.jpg)
+
+---
+
+### Profile Screen with Options
+
+**Purpose**:  
+  The profile screen allows users to view and edit their personal details, including their bio, followers, and following. Users can also change account settings like privacy, language preferences, etc.
+
+**Key Elements**:  
+  - **Profile Picture**:  
+    A circular area where users can upload or change their profile picture.
+  
+  - **User Bio**:  
+    A section beneath the profile picture where users can write a short bio about themselves.
+
+  - **Followers/Following**:  
+    Under the user bio, there is a section showing the number of followers and following, with links to view more information.
+
+  - **Edit Profile Button**:  
+    A button or icon that enables the user to edit their profile information, including their bio and profile picture.
+
+  - **Other Options**:  
+    Links, dropdowns, radio buttons, and checkboxes for changing account settings, such as email or password, and managing notification preferences, language, privacy settings, etc.
+
+  - **Scroll for Options**:  
+    A scrollable section on the right side where users can navigate through various settings and options.
+
+**Interaction**:  
+  Users can update their bio, change their profile picture, view their followers and following, and edit account settings. The options are displayed in a scrollable section on the right, allowing users to easily navigate through their settings and make changes as needed.
+
+**Sketch of Profile Screen with Options**
+
+![Profile Screen with Options](resources/UI_Profile.jpg)
 
 ---
 
